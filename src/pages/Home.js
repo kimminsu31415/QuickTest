@@ -5,12 +5,32 @@ import axios from "axios";
 const Home = () => {
   const navigate = useNavigate();
 
-  const handleSelectCharacterGender = (gender) => {
-    //gender에 따라 데이터를 pageA로 보냄과 동시에 pageA로 이동
-    const characters =
-      gender === "female" ? ["여자 캐릭터 데이터"] : ["남자 캐릭터 데이터"];
+  const handleSelectCharacterGender = async (gender) => {
+    // 성별에 따라 다른 API 엔드포인트로 요청 보내기
+    const endpoint =
+      gender === "female"
+        ? "{{global}}/api/webtoon/female/"
+        : "{{global}}/api/webtoon/male/";
 
-    navigate("/PageA", { state: { characters } });
+    try {
+      // 서버에서 데이터 받아오기
+      const response = await axios.post(
+        endpoint,
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        },
+      );
+
+      // 받아온 데이터를 PageA로 전달하면서 페이지 이동
+      const characters = response.data.map((item) => item.character);
+      navigate("/PageA", { state: { characters } });
+    } catch (error) {
+      console.error("데이터를 가져오는 중 오류가 발생했습니다:", error);
+    }
   };
 
   return (
