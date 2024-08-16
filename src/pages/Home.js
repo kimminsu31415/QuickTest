@@ -1,14 +1,18 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import CardFlip from "../components/CardFlip";
 
 const Home = () => {
   const navigate = useNavigate();
 
-  const selectCharacterGender = async (gender) => {
+  const selectCharacterGenderPageA = async (gender) => {
     // 선택된 성별 문자열을 PageA로 전달
     navigate("/PageA", { state: { gender: gender } });
+  };
+
+  const selectCharacterGenderPageC = async (gender) => {
+    // 선택된 성별 문자열을 PageC로 전달
+    navigate("/PageC", { state: { gender: gender } });
   };
 
   return (
@@ -17,24 +21,38 @@ const Home = () => {
 
       <button
         className="bg-blue-300"
-        onClick={() => selectCharacterGender("female")}
+        onClick={() => selectCharacterGenderPageA("female")}
       >
-        여자 캐릭터 선택
+        여자 캐릭터 선택 - pageA
       </button>
 
       <button
         className="bg-blue-100"
-        onClick={() => selectCharacterGender("male")}
+        onClick={() => selectCharacterGenderPageA("male")}
       >
-        남자 캐릭터 선택
+        남자 캐릭터 선택 - pageA
       </button>
 
       <div>
-        <Link to="/cardFlip" className="bg-blue-200">
+        <Link to="/cardFlip" className="bg-yellow-200">
           카드 컴포넌트
         </Link>
       </div>
-      <CardFlip />
+      <div>
+        <button
+          className="bg-pink-300"
+          onClick={() => selectCharacterGenderPageC("female")}
+        >
+          여자 캐릭터 선택 - PageC
+        </button>
+
+        <button
+          className="bg-pink-100"
+          onClick={() => selectCharacterGenderPageC("male")}
+        >
+          남자 캐릭터 선택 - PageC
+        </button>
+      </div>
     </div>
   );
 };

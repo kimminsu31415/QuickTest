@@ -1,10 +1,11 @@
-// 캐릭터 데이터 불러오기 및 화면에 표시하기
+// 카드 컴포넌트에 캐릭터 데이터 불러오기
 
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
+import CardFlip from "../components/CardFlip";
 
-const PageA = () => {
+const PageC = () => {
   const [error, setError] = useState(null);
   const [characters, setCharacters] = useState([]); // 캐릭터 리스트
   const [character, setCharacter] = useState({}); // 한 명의 캐릭터 정보
@@ -80,18 +81,14 @@ const PageA = () => {
 
   return (
     <div>
-      <div>여기는 PageA</div>
+      <div>여기는 PageC</div>
+      <CardFlip
+        name={character.name}
+        age={character.age}
+        tags={character.tags}
+        error={error}
+      />
       <div className="bg-slate-200">
-        <div>컴포넌트 내용이 바뀌는 div 영역</div>
-        {error ? (
-          <div>Error: {error}</div>
-        ) : (
-          <>
-            <div>캐릭터 이름: {character.name}</div>
-            <div>캐릭터 나이: {character.age}</div>
-            <div>캐릭터 태그: {character.tags}</div>
-          </>
-        )}
         <button className="bg-orange-200" onClick={handleChangeCharacter}>
           내용 바꾸기
         </button>
@@ -103,4 +100,4 @@ const PageA = () => {
   );
 };
 
-export default PageA;
+export default PageC;

@@ -1,3 +1,5 @@
+// 데이터가 잘 나오는지 확인하는 페이지
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
