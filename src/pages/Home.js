@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import CardFlip from "../components/CardFlip";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ const Home = () => {
           카드 컴포넌트
         </Link>
       </div>
+      <CardFlip />
     </div>
   );
 };
