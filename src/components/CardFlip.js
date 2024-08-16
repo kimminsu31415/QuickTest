@@ -1,7 +1,17 @@
 import React, { useState } from "react";
 import "./CardFlip.css";
 
-const CardFlip = ({ name, age, tags, error }) => {
+const CardFlip = ({
+  name,
+  age,
+  tags,
+  OpusName,
+  description,
+  genres,
+  views,
+  likes,
+  error,
+}) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleCardClick = () => {
@@ -28,7 +38,11 @@ const CardFlip = ({ name, age, tags, error }) => {
       <div className="card-face card-back">
         <div className="card-content">
           <div className="text-xl">카드 뒷면</div>
-          <div className="text-3xl font-bold">Back</div>
+          <div className="text-sm">웹툰 제목: {OpusName}</div>
+          <div className="text-sm">웹툰 내용: {description}</div>
+          <div className="text-sm">장르: {genres}</div>
+          <div className="text-sm">조회수: {views}</div>
+          <div className="text-sm">좋아요: {likes}</div>
         </div>
       </div>
     </div>

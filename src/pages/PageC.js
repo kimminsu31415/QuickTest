@@ -1,4 +1,4 @@
-// 카드 컴포넌트에 캐릭터 데이터 불러오기
+// 카드 컴포넌트로 캐릭터 데이터 보내기
 
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
@@ -52,6 +52,12 @@ const PageC = () => {
             name: response.data[0].character.name,
             age: response.data[0].character.age,
             tags: response.data[0].character.tags,
+            // 뒷면 정보 추가
+            OpusName: response.data[0].webtoon.OpusName,
+            description: response.data[0].webtoon.description,
+            genres: response.data[0].webtoon.genres,
+            views: response.data[0].webtoon.views,
+            likes: response.data[0].webtoon.likes,
           });
         }
       } catch (error) {
@@ -72,6 +78,12 @@ const PageC = () => {
         name: characters[newIndex].character.name,
         age: characters[newIndex].character.age,
         tags: characters[newIndex].character.tags,
+        // 뒷면 정보 추가
+        OpusName: characters[newIndex].webtoon.OpusName,
+        description: characters[newIndex].webtoon.description,
+        genres: characters[newIndex].webtoon.genres,
+        views: characters[newIndex].webtoon.views,
+        likes: characters[newIndex].webtoon.likes,
       });
     } else {
       // 마지막 캐릭터라면 PageB로 이동
@@ -86,6 +98,11 @@ const PageC = () => {
         name={character.name}
         age={character.age}
         tags={character.tags}
+        OpusName={character.OpusName}
+        description={character.description}
+        genres={character.genres}
+        views={character.views}
+        likes={character.likes}
         error={error}
       />
       <div className="bg-slate-200">
