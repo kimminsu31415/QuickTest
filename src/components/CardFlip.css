@@ -1,0 +1,50 @@
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #e2e8f0;
+}
+
+.card {
+  width: 240px;
+  height: 320px;
+  perspective: 1000px; /* 3D 효과를 위한 원근감 설정 */
+}
+
+.card-face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden; /* 뒷면이 보이지 않도록 설정 */
+  border-radius: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: white;
+  transition: transform 0.8s ease;
+}
+
+.card-front {
+  background-color: #007acc;
+}
+
+.card-back {
+  background-color: #f44336;
+  transform: rotateY(180deg); /* 뒷면을 회전시켜서 보이지 않게 설정 */
+}
+
+.card.is-flipped .card-front {
+  transform: rotateY(180deg); /* 앞면을 뒤집음 */
+}
+
+.card.is-flipped .card-back {
+  transform: rotateY(360deg); /* 뒷면을 다시 앞쪽으로 회전시킴 */
+}
+
+.card-content {
+  position: relative;
+  padding: 16px;
+  text-align: center;
+}
