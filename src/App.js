@@ -5,6 +5,7 @@ import PageA from "./pages/PageA";
 import PageB from "./pages/PageB";
 import PageC from "./pages/PageC";
 import CardFlip from "./components/CardFlip";
+import ChatPage from "./pages/ChatPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/pageA" element={<PageA />} />
         <Route path="/pageB" element={<PageB />} />
         <Route path="/pageC" element={<PageC />} />
+        <Route path="/chatPage" element={<ChatPage />} />
         <Route path="/cardFlip" element={<CardFlip />} />
       </Routes>
     </div>

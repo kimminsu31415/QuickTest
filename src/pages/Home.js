@@ -39,6 +39,11 @@ const Home = () => {
         </Link>
       </div>
       <div>
+        <Link to="/chatPage" className="bg-green-200">
+          채팅 페이지
+        </Link>
+      </div>
+      <div>
         <button
           className="bg-pink-300"
           onClick={() => selectCharacterGenderPageC("female")}
