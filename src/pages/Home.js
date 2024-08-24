@@ -18,6 +18,9 @@ const Home = () => {
   return (
     <div>
       <div>여기는 Home 페이지</div>
+      <Link to="/Canvas" className="bg-red-200">
+        캔바스
+      </Link>
 
       <button
         className="bg-blue-300"
